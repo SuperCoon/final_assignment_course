@@ -30,6 +30,10 @@ class BasePage():
         link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         link.click()
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
+
 #в котором будем перехватывать исключение. В него будем передавать два аргумента: как искать (css, id, xpath и тд) и собственно что искать (строку-селектор). 
 
     def is_element_present(self, how, what):  
